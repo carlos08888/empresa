@@ -1,20 +1,30 @@
 <?php
 session_start();
+require 'config/db.php';
 
-// Garante que o carrinho esteja definido como array
+// Garante que o carrinho esteja definido
 if (!isset($_SESSION['carrinho']) || !is_array($_SESSION['carrinho'])) {
     $_SESSION['carrinho'] = [];
 }
 
 $carrinho_vazio = empty($_SESSION['carrinho']);
 
-// Lista de produtos (poderia vir de um banco)
-$produtos = [
-    1 => ["nome" => "Tênis Basquete", "preco" => 2.99, "imagem" => "img/tenis.jpg"],
-    2 => ["nome" => "Blusa Basquete", "preco" => 1.50, "imagem" => "img/blusa.jpg"],
-    3 => ["nome" => "Manguito Basquete", "preco" => 100.99, "imagem" => "img/manguito.jpg"],
-    4 => ["nome" => "Short", "preco" => 4.99, "imagem" => "img/short.jpg"]
-];
+// Carrega os produtos do banco de dados
+$ids = array_keys($_SESSION['carrinho']);
+$produtos = [];
+
+if (!$carrinho_vazio && count($ids) > 0) {
+    $placeholders = implode(',', array_fill(0, count($ids), '?'));
+    $stmt = $conn->prepare("SELECT id, nome, preco, imagem FROM produtos WHERE id IN ($placeholders)");
+
+    $stmt->bind_param(str_repeat('i', count($ids)), ...$ids);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    while ($produto = $result->fetch_assoc()) {
+        $produtos[$produto['id']] = $produto;
+    }
+}
 
 // Calcula o total
 $total = 0;
@@ -30,7 +40,7 @@ foreach ($_SESSION['carrinho'] as $id => $quantidade) {
 <head>
     <meta charset="UTF-8">
     <title>Carrinho - INOVA SOLUTION</title>
-    <link rel="stylesheet" href="carrinho.css?v=1.1">
+    <link rel="stylesheet" href="carrinho.css?v=1.2">
 </head>
 <body>
     <header>
