@@ -39,7 +39,7 @@ if (isset($_GET['add'])) {
 <head>
     <meta charset="UTF-8">
     <title>Dashboard - INOVA SOLUTION</title>
-    <link rel="stylesheet" href="dashboard.css?v=1.2">
+    <link rel="stylesheet" href="dashboard.css?v=2.0">
 </head>
 <body>
 <header>
@@ -59,8 +59,8 @@ if (isset($_GET['add'])) {
         <?php foreach ($produtos as $id => $produto): ?>
             <div class="produto">
                 <img src="<?php echo $produto['imagem']; ?>" alt="<?php echo $produto['nome']; ?>">
-                <div class="tooltip-descricao"><?php echo nl2br($produto['descricao']); ?></div>
                 <h3><?php echo $produto['nome']; ?></h3>
+                <p class="descricao"><?php echo nl2br($produto['descricao']); ?></p>
                 <p>R$<?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
                 <a href="?add=<?php echo $id; ?>" class="btn-comprar">Adicionar ao Carrinho</a>
             </div>

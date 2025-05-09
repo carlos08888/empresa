@@ -1,5 +1,5 @@
 <?php
-require 'conexao.php';
+require 'config/db.php';
 
 $id = $_GET['id'] ?? null;
 
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_FILES['imagem']['name'])) {
         $arquivo_tmp = $_FILES['imagem']['tmp_name'];
         $nome_arquivo = uniqid() . '_' . $_FILES['imagem']['name'];
-        $caminho_destino = 'uploads/' . $nome_arquivo;
+        $caminho_destino = 'img/' . $nome_arquivo;
 
         if (move_uploaded_file($arquivo_tmp, $caminho_destino)) {
             $imagem = $caminho_destino;
