@@ -19,7 +19,4 @@ CREATE TABLE produtos (
     imagem VARCHAR(255)
 );
 
-INSERT INTO produtos (nome, descricao, preco, imagem) VALUES
-('Tênis Esportivo', 'Confortável e resistente para o dia a dia.', 199.99, 'imagens/tenis.jpg'),
-('Blusa Casual', 'Blusa de algodão para todas as estações.', 89.90, 'imagens/blusa.jpg'),
-('Boné Estiloso', 'Boné com aba curva, estilo urbano.', 49.50, 'imagens/bone.jpg');
+INSERT INTO produtos (nome, descricao, preco, imagem);
