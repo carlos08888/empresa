@@ -1,0 +1,119 @@
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.register-container {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-size: 26px;
+}
+
+/* Campo com ícone */
+.input-icon {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 16px;
+}
+
+.input-icon input {
+    width: 100%;
+    padding: 12px 12px 12px 40px; /* espaço para o ícone */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.input-icon input:focus {
+    border-color: #3498db;
+    background-color: #f0f9ff;
+    outline: none;
+}
+
+/* Botão */
+button {
+    padding: 12px;
+    width: 100%;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #2980b9, #1c598a);
+    transform: scale(1.02);
+}
+
+/* Mensagens */
+.mensagem {
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sucesso {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d0e9c6;
+}
+
+.erro {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+/* Link */
+.login {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.login a {
+    color: #3498db;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}

@@ -19,6 +19,7 @@ header {
 .logo {
     font-size: 1.5em;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .header-right .logout {
@@ -64,6 +65,7 @@ th, td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    font-size: 1em;
 }
 
 td img {
@@ -84,6 +86,38 @@ a:hover {
     color: #003d66;
 }
 
+/* Melhoria no design da tabela */
+table th {
+    background-color: #b3d0e6;
+    color: #333;
+    font-weight: bold;
+}
+
+td {
+    background-color: #fff;
+    color: #555;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+td:hover {
+    background-color: #f0f4f8;
+}
+
+/* Botões de ação */
+a {
+    padding: 6px 12px;
+    border-radius: 5px;
+    background-color: #e6f0ff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    background-color: #b3d0e6;
+    color: #003d66;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
     table, thead, tbody, th, td, tr {
         display: block;

@@ -8,7 +8,7 @@ $result = $conn->query("SELECT * FROM produtos ORDER BY id DESC");
 <head>
     <meta charset="UTF-8">
     <title>Gerenciar Produtos</title>
-    <link rel="stylesheet" href="admin.css?v=2.0">
+    <link rel="stylesheet" href="listar_produtos.css?v=2.0">
 </head>
 <body>
 <header>
@@ -39,6 +39,7 @@ $result = $conn->query("SELECT * FROM produtos ORDER BY id DESC");
                     <td><?php echo $produto['descricao']; ?></td>
                     <td>
                         <a href="editar_produto.php?id=<?php echo $produto['id']; ?>">✏️ Editar</a> |
+                        <a href="editar_descricao.php?id=<?php echo $produto['id']; ?>">📝 Editar Descrição</a> |
                         <a href="excluir_produto.php?id=<?php echo $produto['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir?')">🗑️ Excluir</a>
                     </td>
                 </tr>

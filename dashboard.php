@@ -2,7 +2,14 @@
 session_start();
 require 'config/db.php';
 
-$usuario = $_SESSION['usuario'] ?? 'Visitante';
+// Verifica se o usuário está logado
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php"); // Redireciona para o login caso não esteja logado
+    exit();
+}
+
+// Pega o nome do usuário da sessão
+$nomeUsuario = $_SESSION['usuario_nome']; // Nome armazenado na sessão
 
 // Busca produtos do banco
 $produtos = [];
@@ -43,9 +50,8 @@ if (isset($_GET['add'])) {
 </head>
 <body>
 <header>
-    <div class="logo">INOVA SOLUTION</div>
+    <div class="logo">Bem-vindo, <strong><?php echo htmlspecialchars($nomeUsuario); ?></strong>!</div>
     <div class="usuario">
-        Bem-vindo, <?php echo htmlspecialchars($usuario); ?>!
         <a href="logout.php" class="btn-sair">Sair</a>
     </div>
     <div class="carrinho">
