@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($usuario['nivel'] === 'admin') {
                 header("Location: admin.php");
             } else {
-                header("Location: login.php");
+                header("Location: dashboard.php");
             }
             exit;
         } else {

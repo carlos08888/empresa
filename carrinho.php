@@ -40,7 +40,7 @@ foreach ($_SESSION['carrinho'] as $id => $quantidade) {
 <head>
     <meta charset="UTF-8">
     <title>Carrinho - INOVA SOLUTION</title>
-    <link rel="stylesheet" href="carrinho.css?v=1.2">
+    <link rel="stylesheet" href="carrinho.css?v=1.3">
 </head>
 <body>
     <header>
