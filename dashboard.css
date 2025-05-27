@@ -7,6 +7,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f4f4f4;
+    color: #34495e;
 }
 
 /* Alinhamento do cabeçalho */
@@ -16,24 +17,23 @@ header {
     display: flex;
     justify-content: space-between; /* Isso vai garantir que haja espaço entre os elementos */
     align-items: center;
-    padding: 15px 30px;
+    padding: 10px 30px; /* Ajustei o padding para não ficar muito grande */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo */
 .logo {
-    font-size: 28px;
+    font-size: 20px; /* Reduzi o tamanho do nome do usuário */
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
+    flex-grow: 1; /* Faz com que o nome do usuário ocupe o espaço restante */
 }
 
-/* Área do usuário com nome e botão de sair */
 .usuario {
     font-size: 16px;
     display: flex;
     align-items: center;
-    gap: 15px; /* Adiciona um espaço entre o nome do usuário e o botão "Sair" */
+    gap: 10px; /* Ajustei o gap para não ficar tão grande */
 }
 
 .usuario a {
@@ -51,10 +51,6 @@ header {
 }
 
 /* Carrinho */
-.carrinho {
-    font-size: 16px;
-}
-
 .carrinho a {
     color: #fff;
     font-size: 18px;
@@ -69,6 +65,11 @@ header {
     background-color: #27ae60;
 }
 
+/* Ajuste do botão de sair */
+.carrinho, .usuario {
+    margin-left: 20px; /* Pequeno ajuste para dar um espaço */
+}
+
 /* Conteúdo Principal */
 main {
     padding: 40px 30px;
@@ -79,15 +80,15 @@ h2 {
     font-size: 32px;
     font-weight: bold;
     color: #34495e;
-    letter-spacing: 1px;
     text-transform: capitalize;
 }
 
 .produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Ajuste para responsividade */
     gap: 30px;
     justify-items: center;
+    margin-top: 30px;
 }
 
 .produto {
@@ -113,7 +114,6 @@ h2 {
     object-fit: contain;
     border-radius: 12px;
     transition: transform 0.3s ease-in-out;
-    background-color: #fff;
 }
 
 .produto h3 {
@@ -155,4 +155,5 @@ h2 {
 
 .produto .btn-comprar:active {
     background-color: #1d4e77;
+    transform: scale(0.98); /* Efeito de compressão ao clicar */
 }

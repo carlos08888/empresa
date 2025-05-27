@@ -7,54 +7,62 @@ body {
     color: #333;
 }
 
+/* Cabeçalho */
 header {
-    background-color: #004d99;
+    background: linear-gradient(45deg, #004d99, #0066cc); /* Gradiente moderno */
     color: white;
-    padding: 15px 30px;
+    padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-    font-size: 1.5em;
+    font-size: 1.8em; /* Aumentei a logo para dar mais destaque */
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .header-right .logout {
     color: white;
-    background-color: #0066cc;
+    background-color: #008CBA;
     text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 5px;
+    padding: 8px 16px;
+    border-radius: 6px;
     font-weight: 500;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .header-right .logout:hover {
-    background-color: #003d66;
+    background-color: #005f7f;
+    transform: scale(1.05); /* Efeito de ampliação */
 }
 
+/* Container Principal */
 main.container {
-    padding: 30px;
+    padding: 40px;
     max-width: 1200px;
     margin: auto;
     background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Título */
 h1 {
     margin-bottom: 20px;
-    font-size: 1.8em;
+    font-size: 2em;
     color: #222;
+    font-weight: bold;
 }
 
+/* Tabela */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 thead {
@@ -62,32 +70,13 @@ thead {
 }
 
 th, td {
-    padding: 12px 15px;
+    padding: 12px 20px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
     font-size: 1em;
+    border-bottom: 1px solid #ddd;
 }
 
-td img {
-    width: 60px;
-    height: auto;
-    border-radius: 5px;
-}
-
-a {
-    color: #0066cc;
-    text-decoration: none;
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: #003d66;
-}
-
-/* Melhoria no design da tabela */
-table th {
+th {
     background-color: #b3d0e6;
     color: #333;
     font-weight: bold;
@@ -97,15 +86,26 @@ td {
     background-color: #fff;
     color: #555;
     border-radius: 8px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 td:hover {
     background-color: #f0f4f8;
+    transform: scale(1.01); /* Efeito de leve aumento no hover */
 }
 
-/* Botões de ação */
+td img {
+    width: 60px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Links e Botões */
 a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
     padding: 6px 12px;
     border-radius: 5px;
     background-color: #e6f0ff;
@@ -115,6 +115,23 @@ a {
 a:hover {
     background-color: #b3d0e6;
     color: #003d66;
+}
+
+/* Melhorando o visual das ações de editar/excluir */
+a:focus, a:hover {
+    text-decoration: underline;
+    color: #003d66;
+}
+
+a:active {
+    background-color: #99c2e6;
+    transform: scale(0.98); /* Efeito de diminuição ao clicar */
+}
+
+/* Corrigindo a sobreposição de "Editar" e "Excluir" */
+td a {
+    display: inline-block;
+    margin-bottom: 5px; /* Adiciona um pequeno espaço entre os links */
 }
 
 /* Responsividade */
@@ -137,7 +154,7 @@ a:hover {
     }
 
     td {
-        padding: 10px;
+        padding: 12px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #eee;
@@ -147,9 +164,40 @@ a:hover {
         content: attr(data-label);
         font-weight: bold;
         color: #666;
+        padding-right: 10px;
     }
 
     td:last-child {
         border-bottom: none;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+    }
+
+    .header-right {
+        margin-top: 10px;
+    }
+
+    main.container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    td {
+        padding: 10px;
+        font-size: 0.9em;
     }
 }

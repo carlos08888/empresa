@@ -9,7 +9,7 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 // Pega o nome do usuário da sessão
-$nomeUsuario = $_SESSION['usuario_nome']; // Nome armazenado na sessão
+$nomeUsuario = htmlspecialchars($_SESSION['usuario_nome']); // Nome armazenado na sessão
 
 // Busca produtos do banco
 $produtos = [];
@@ -28,7 +28,7 @@ $conn->close();
 
 // Carrinho
 if (isset($_GET['add'])) {
-    $id = $_GET['add'];
+    $id = (int) $_GET['add']; // Certificando que o id é um inteiro
     if (isset($produtos[$id])) {
         if (!isset($_SESSION['carrinho'][$id])) {
             $_SESSION['carrinho'][$id] = 1;
@@ -50,7 +50,7 @@ if (isset($_GET['add'])) {
 </head>
 <body>
 <header>
-    <div class="logo">Bem-vindo, <strong><?php echo htmlspecialchars($nomeUsuario); ?></strong>!</div>
+    <div class="logo">Bem-vindo, <strong><?php echo $nomeUsuario; ?></strong>!</div>
     <div class="usuario">
         <a href="logout.php" class="btn-sair">Sair</a>
     </div>
@@ -64,9 +64,9 @@ if (isset($_GET['add'])) {
     <div class="produtos">
         <?php foreach ($produtos as $id => $produto): ?>
             <div class="produto">
-                <img src="<?php echo $produto['imagem']; ?>" alt="<?php echo $produto['nome']; ?>">
-                <h3><?php echo $produto['nome']; ?></h3>
-                <p class="descricao"><?php echo nl2br($produto['descricao']); ?></p>
+                <img src="<?php echo htmlspecialchars($produto['imagem']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
+                <h3><?php echo htmlspecialchars($produto['nome']); ?></h3>
+                <p class="descricao"><?php echo nl2br(htmlspecialchars($produto['descricao'])); ?></p>
                 <p>R$<?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
                 <a href="?add=<?php echo $id; ?>" class="btn-comprar">Adicionar ao Carrinho</a>
             </div>
